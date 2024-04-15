@@ -38,9 +38,6 @@ layout: default
       {% endunless %}
 
       <section class="page__content e-content" itemprop="text">
-        {% if page.tags %} {% for tag in page.tags %}
-          <span class="tag">{{ tag }}</span>
-        {% endfor %} {% endif %}
         {% if page.toc %}
           <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
             <nav class="toc">
