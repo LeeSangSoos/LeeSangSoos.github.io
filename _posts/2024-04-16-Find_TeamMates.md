@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "내일배움캠프 팀프로젝트1 Find TeamMate 2일차"
-permalink: /2024/04/16/Find_TeamMates
+permalink: /2024/04/16/Find_TeamMates/
 tags: [Unity, 내일배움캠프, 스파르타내일배움캠프, 카드게임]
 ---
 
