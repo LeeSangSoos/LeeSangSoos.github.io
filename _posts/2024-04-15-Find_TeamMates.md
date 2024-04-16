@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "내일배움캠프 팀프로젝트1 Find TeamMate"
+title: "내일배움캠프 팀프로젝트1 Find TeamMate 1일차"
 tags: [Unity, 내일배움캠프, 스파르타내일배움캠프, 카드게임]
 ---
 
