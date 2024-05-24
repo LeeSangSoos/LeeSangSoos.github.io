@@ -68,15 +68,6 @@ layout: default
     {% endif %}
   </article>
 
-  <script src="https://utteranc.es/client.js"
-        repo="LeeSangSoos/blog_comments"
-        issue-term="pathname"
-        label="✨💬✨"
-        theme="github-dark"
-        crossorigin="anonymous"
-        async>
-  </script>
-
   {% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
   {% if page.id and page.related and site.related_posts.size > 0 %}
     <div class="page__related">
@@ -102,6 +93,15 @@ layout: default
     </div>
   {% endif %}
 </div>
+
+<script src="https://utteranc.es/client.js"
+        repo="LeeSangSoos/blog_comments"
+        issue-term="pathname"
+        label="✨💬✨"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
 
 <style>
   .utterances {
