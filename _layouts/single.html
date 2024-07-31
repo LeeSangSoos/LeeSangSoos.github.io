@@ -22,17 +22,14 @@ layout: default
   {% include sidebar.html %}
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
-    {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
-
     <div class="page__inner-wrap">
       {% unless page.header.overlay_color or page.header.overlay_image %}
         <header>
-          {% if page.title %}<h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="{{ page.url | absolute_url }}" class="u-url" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
-          </h1>{% endif %}
+          {% if page.title %}
+            <h1 id="page-title" class="page__title p-name" itemprop="headline">
+              <a href="{{ page.url | absolute_url }}" class="u-url" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
+            </h1>
+          {% endif %}
           {% include page__meta.html %}
         </header>
       {% endunless %}
@@ -47,19 +44,17 @@ layout: default
           </aside>
         {% endif %}
         {{ content }}
-        {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+        {% if page.link %}
+          <div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>
+        {% endif %}
       </section>
 
       <footer class="page__meta">
-        {% if site.data.ui-text[site.locale].meta_label %}
-          <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
-        {% endif %}
         {% include page__taxonomy.html %}
         {% include page__date.html %}
       </footer>
 
       {% if page.share %}{% include social-share.html %}{% endif %}
-
       {% include post_pagination.html %}
     </div>
 
@@ -68,7 +63,6 @@ layout: default
     {% endif %}
   </article>
 
-  {% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
   {% if page.id and page.related and site.related_posts.size > 0 %}
     <div class="page__related">
       <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
@@ -78,7 +72,6 @@ layout: default
         {% endfor %}
       </div>
     </div>
-  {% comment %}<!-- otherwise show recent posts if no related when `related: true` -->{% endcomment %}
   {% elsif page.id and page.related %}
     <div class="page__related">
       <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
@@ -104,7 +97,34 @@ layout: default
 </script>
 
 <style>
-  .utterances {
-    margin-top: 2rem;
-  }
+  /* 글씨 크기 및 기본 스타일 조정 */
+.page__title, .page__content, .page__meta-title, .page__related-title {
+    font-size: 14px; /* 기본 글씨 크기를 14px로 조정 */
+    color: #333; /* 글씨 색상을 어둡게 조정 */
+}
+
+.page__content {
+    line-height: 1.6; /* 줄 간격 조정 */
+    margin-bottom: 20px; /* 아래쪽 마진 추가 */
+}
+
+/* 버튼 스타일 조정 */
+.btn--primary {
+    background-color: #0056b3; /* 배경색 조정 */
+    color: white; /* 글씨색 백색으로 조정 */
+    padding: 8px 16px; /* 패딩 조정 */
+    border-radius: 4px; /* 버튼 모서리 둥글게 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+/* 링크 스타일 조정 */
+a {
+    color: #0056b3; /* 링크 색상 조정 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+a:hover {
+    text-decoration: underline; /* 마우스 오버 시 밑줄 표시 */
+}
+
 </style>
